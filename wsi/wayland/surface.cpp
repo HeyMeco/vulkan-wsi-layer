@@ -232,7 +232,7 @@ bool surface::init()
    if (presentation_time_interface.get() == nullptr)
    {
       WSI_LOG_ERROR("Failed to obtain wp_presentation interface.");
-      return false;
+      //return false;
    }
 
    if (explicit_sync_interface.get() != nullptr)
