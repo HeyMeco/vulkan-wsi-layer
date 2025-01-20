@@ -36,6 +36,8 @@
 #include <vulkan/vulkan_wayland.h>
 #include <xcb/xcb.h>
 #include <vulkan/vulkan_xcb.h>
+#include <X11/Xlib.h>
+#include <vulkan/vulkan_xlib.h>
 
 #include <memory>
 #include <unordered_set>
@@ -232,6 +234,8 @@ static constexpr uint32_t API_VERSION_MAX = UINT32_MAX;
    EP(CreateDisplayPlaneSurfaceKHR, VK_KHR_DISPLAY_EXTENSION_NAME, API_VERSION_MAX, false)                           \
    /* VK_KHR_xcb_surface */                                                                                          \
    EP(CreateXcbSurfaceKHR, VK_KHR_XCB_SURFACE_EXTENSION_NAME, API_VERSION_MAX, false)                                \
+   /* VK_KHR_xlib_surface */                                                                                         \
+   EP(CreateXlibSurfaceKHR, VK_KHR_XLIB_SURFACE_EXTENSION_NAME, API_VERSION_MAX, false)                              \
    /* VK_KHR_get_surface_capabilities2 */                                                                            \
    EP(GetPhysicalDeviceSurfaceCapabilities2KHR, VK_KHR_GET_SURFACE_CAPABILITIES_2_EXTENSION_NAME, API_VERSION_MAX,   \
       false)                                                                                                         \
