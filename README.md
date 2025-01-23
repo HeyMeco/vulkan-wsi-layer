@@ -11,7 +11,7 @@ apt install cmake -y
 cmake . -DCMAKE_BUILD_TYPE=Release -DBUILD_WSI_HEADLESS=0 -DBUILD_WSI_WAYLAND=1 -DBUILD_WSI_X11=0 -DSELECT_EXTERNAL_ALLOCATOR=dma_buf_heaps -DKERNEL_HEADER_DIR="/usr/src/linux-headers-6.1.84-vendor-rk35xx" -DWSIALLOC_MEMORY_HEAP_NAME=cma
 ```
 
-5. Follow the [Installation](https://github.com/HeyMeco/vulkan-wsi-layer/tree/main?tab=readme-ov-file#installation) section from below
+5. Follow the [Installation](#installation) section from below
 
 ---
 # Vulkan® Window System Integration Layer
