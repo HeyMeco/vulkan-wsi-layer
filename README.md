@@ -1,3 +1,19 @@
+# How to compile for use with libmali-rockchip
+
+1. Run `apt update` and then use `armbian-config` to install Kernel Headers
+   <br>Alternative to armbian-config is to just install the headers via `apt install linux-headers-vendor-rk35xx`
+2. Install cmake dependency to compile
+```
+apt install cmake -y
+```
+4. Clone this repo and run the following inside the vulkan-wsi-layer folder:
+```
+cmake . -DCMAKE_BUILD_TYPE=Release -DBUILD_WSI_HEADLESS=0 -DBUILD_WSI_WAYLAND=1 -DBUILD_WSI_X11=0 -DSELECT_EXTERNAL_ALLOCATOR=dma_buf_heaps -DKERNEL_HEADER_DIR="/usr/src/linux-headers-6.1.84-vendor-rk35xx" -DWSIALLOC_MEMORY_HEAP_NAME=cma
+```
+
+5. Follow the [Installation](https://github.com/HeyMeco/vulkan-wsi-layer/edit/main/README.md#installation) section from below
+
+---
 # Vulkan® Window System Integration Layer
 
 ## Introduction
