@@ -1,20 +1,34 @@
 #!/bin/bash
 
-# Find the latest kernel headers matching the pattern /usr/src/linux-headers-6.1.*
-KERNEL_HEADER_DIR=$(ls -d /usr/src/linux-headers-6.1.* 2>/dev/null | sort -V | tail -n 1)
+# Function to find the latest matching kernel headers
+find_kernel_headers() {
+  ls -d /usr/src/linux-headers-6.1.* 2>/dev/null | sort -V | tail -n 1
+}
 
-# Check if a valid kernel header directory was found
+# Try to find the kernel headers
+KERNEL_HEADER_DIR=$(find_kernel_headers)
+
+# If not found, install the missing package and try again
 if [[ -z "$KERNEL_HEADER_DIR" ]]; then
-  echo "Error: No matching Linux kernel headers found in /usr/src/"
-  exit 1
+  echo "Linux kernel headers not found. Installing linux-headers-vendor-rk35xx..."
+  sudo apt update
+  sudo apt install -y linux-headers-vendor-rk35xx
+
+  # Try to find the headers again after installation
+  KERNEL_HEADER_DIR=$(find_kernel_headers)
+  
+  # If still not found, exit with an error
+  if [[ -z "$KERNEL_HEADER_DIR" ]]; then
+    echo "Error: Kernel headers were installed but could not be found in /usr/src/"
+    exit 1
+  fi
 fi
 
 echo "Using kernel headers from: $KERNEL_HEADER_DIR"
 
-# Install required packages
+# Install required dependencies
 echo "Installing required packages..."
-sudo apt update
-sudo apt install -y linux-headers-vendor-rk35xx cmake libvulkan-dev libdrm-dev libwayland-dev wayland-protocols libx11-xcb-dev
+sudo apt install -y cmake libvulkan-dev libdrm-dev libwayland-dev wayland-protocols libx11-xcb-dev
 
 # Clone the repository
 echo "Cloning vulkan-wsi-layer repository..."
