@@ -8,7 +8,7 @@ apt install cmake -y
 ```
 4. Clone this repo and run the following inside the vulkan-wsi-layer folder:
 ```
-cmake . -DCMAKE_BUILD_TYPE=Release -DBUILD_WSI_HEADLESS=0 -DBUILD_WSI_WAYLAND=1 -DBUILD_WSI_X11=0 -DSELECT_EXTERNAL_ALLOCATOR=dma_buf_heaps -DKERNEL_HEADER_DIR="/usr/src/linux-headers-6.1.84-vendor-rk35xx" -DWSIALLOC_MEMORY_HEAP_NAME=cma
+cmake . -DCMAKE_BUILD_TYPE=Release -DBUILD_WSI_HEADLESS=0 -DBUILD_WSI_WAYLAND=1 -DBUILD_WSI_X11=0 -DSELECT_EXTERNAL_ALLOCATOR=dma_buf_heaps -DKERNEL_HEADER_DIR="/usr/src/linux-headers-6.1.99-vendor-rk35xx" -DENABLE_WAYLAND_FIFO_PRESENTATION_THREAD=1 -DWSIALLOC_MEMORY_HEAP_NAME=system-uncached
 ```
 
 5. Follow the [Installation](#installation) section from below
