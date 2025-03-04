@@ -1,6 +1,6 @@
 # How to compile for use with libmali-rockchip
 
-1. Run `apt update` and then use `armbian-config` to install Kernel Headers
+1. Use `armbian-config` to install Linux Kernel Headers
    <br>Alternative to armbian-config is to just install the headers via `apt install linux-headers-vendor-rk35xx`
 2. Install cmake dependency to compile
 ```
