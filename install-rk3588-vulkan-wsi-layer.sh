@@ -33,7 +33,7 @@ sudo apt install -y cmake libvulkan-dev libdrm-dev libwayland-dev wayland-protoc
 # Clone the repository
 echo "Cloning vulkan-wsi-layer repository..."
 git clone https://github.com/ginkage/vulkan-wsi-layer.git
-cd Vulkan-WSI-Layer || { echo "Failed to enter repository directory"; exit 1; }
+cd vulkan-wsi-layer || { echo "Failed to enter repository directory"; exit 1; }
 
 # Run CMake with the required configuration
 echo "Configuring build with CMake..."
