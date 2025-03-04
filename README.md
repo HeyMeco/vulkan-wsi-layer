@@ -4,15 +4,18 @@
    <br>Alternative to armbian-config is to just install the headers via `apt install linux-headers-vendor-rk35xx`
 2. Install cmake dependency to compile
 ```
-apt install cmake -y
+sudo apt install cmake libvulkan-dev libdrm-dev libwayland-dev wayland-protocols libx11-xcb-dev -y
 ```
 4. Clone this repo and run the following inside the vulkan-wsi-layer folder:
 ```
 cmake . -DCMAKE_BUILD_TYPE=Release -DBUILD_WSI_HEADLESS=0 -DBUILD_WSI_WAYLAND=1 -DBUILD_WSI_X11=0 -DSELECT_EXTERNAL_ALLOCATOR=dma_buf_heaps -DKERNEL_HEADER_DIR="/usr/src/linux-headers-6.1.99-vendor-rk35xx" -DENABLE_WAYLAND_FIFO_PRESENTATION_THREAD=1 -DWSIALLOC_MEMORY_HEAP_NAME=system-uncached
 ```
 
-5. Follow the [Installation](#installation) section from below
-
+5. Then you can install it by running:
+```
+sudo make -i
+```
+6. Reboot and you're done
 ---
 # Vulkan® Window System Integration Layer
 
